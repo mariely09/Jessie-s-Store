@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jessie's Sari-Sari Store - Your Neighborhood Store in Brgy. Poblacion, Luisiana, Laguna.">
+    <title>Jessie's Sari-Sari Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <span class="nav-logo" data-page="home" aria-label="Jessie's Store home">
+                <span class="logo-icon">🛒</span>
+                <span class="logo-text">Jessie's Store</span>
+            </span>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"     class="nav-link active" data-page="home"     aria-current="page">🏠 Home</a></li>
+                <li><a href="#products" class="nav-link"        data-page="products">🛒 Products</a></li>
+                <li><a href="#promos"   class="nav-link"        data-page="promos">📢 Promos</a></li>
+                <li><a href="#location" class="nav-link"        data-page="location">📍 Location</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- ═══ HOME ═══ -->
+        <section id="home" class="page active" aria-labelledby="home-heading">
+
+            <!-- Full-viewport hero -->
+            <div class="hero">
+                <img src="img/HeroBG.jpg" alt="Jessie's Sari-Sari Store" class="hero-bg-img">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 id="home-heading">Welcome to Jessie's Store!</h1>
+                    <p class="hero-tagline">📍 Brgy. San Diego, Luisiana, Laguna</p>
+                    <p class="hero-subtitle">Everything you need, right here.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn btn-primary" data-page="products">Browse Products</a>
+                        <a href="#location" class="btn btn-outline" data-page="location">Find Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro text band -->
+            <div class="home-intro">
+                <div class="section-container">
+                    <h2>About Jessie's Store</h2>
+                    <p>Jessie's Sari-Sari Store is a humble neighborhood shop in Brgy. San Diego, Luisiana, Laguna. Find everything you need for your daily essentials from snacks and drinks to household supplies. All at affordable prices.</p>
+                </div>
+            </div>
+
+            <!-- Category quick-links band -->
+            <div class="home-categories">
+                <div class="section-container">
+                    <h2>Browse by Category</h2>
+                    <div class="categories-grid">
+                        <div class="category-box" data-page="products">
+                            <span class="cat-icon">🍪</span>
+                            <h3>Snacks</h3>
+                            <p>Chips, biscuits, and more</p>
+                        </div>
+                        <div class="category-box" data-page="products">
+                            <span class="cat-icon">🥤</span>
+                            <h3>Beverages</h3>
+                            <p>Softdrinks, juice, and water</p>
+                        </div>
+                        <div class="category-box" data-page="products">
+                            <span class="cat-icon">🥫</span>
+                            <h3>Canned Goods</h3>
+                            <p>Sardines, tuna, corned beef</p>
+                        </div>
+                        <div class="category-box" data-page="products">
+                            <span class="cat-icon">🧂</span>
+                            <h3>Condiments</h3>
+                            <p>Sauces, seasoning, and spices</p>
+                        </div>
+                        <div class="category-box" data-page="products">
+                            <span class="cat-icon">🧴</span>
+                            <h3>Supplies</h3>
+                            <p>Soap, shampoo, and more</p>
+                        </div>
+                        <div class="category-box" data-page="products">
+                            <span class="cat-icon">🚬</span>
+                            <h3>Cigarettes</h3>
+                            <p>Various brands, per stick</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ═══ PRODUCTS ═══ -->
+        <section id="products" class="page" aria-labelledby="products-heading">
+            <div class="page-header">
+                <h1 id="products-heading">Our Products</h1>
+                <p>Everything available in our store</p>
+            </div>
+            <div class="section-container">
+
+                <div class="products-toolbar">
+                    <input type="text" class="search-bar" placeholder="Search for a product..." oninput="filterProducts(this.value)" aria-label="Search products">
+                    <div class="filter-tabs" role="group" aria-label="Filter by category">
+                        <div class="tab active" onclick="setTab(this,'All')"          role="button" tabindex="0">All</div>
+                        <div class="tab"        onclick="setTab(this,'Snacks')"        role="button" tabindex="0">Snacks</div>
+                        <div class="tab"        onclick="setTab(this,'Beverages')"     role="button" tabindex="0">Beverages</div>
+                        <div class="tab"        onclick="setTab(this,'Canned Goods')"  role="button" tabindex="0">Canned Goods</div>
+                        <div class="tab"        onclick="setTab(this,'Condiments')"    role="button" tabindex="0">Condiments</div>
+                        <div class="tab"        onclick="setTab(this,'Supplies')"      role="button" tabindex="0">Supplies</div>
+                        <div class="tab"        onclick="setTab(this,'Cigarettes')"    role="button" tabindex="0">Cigarettes</div>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+
+                    <!-- SNACKS -->
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Chippy</h3>
+                        <p>Corn chips, BBQ / Cheese flavor</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Nova</h3>
+                        <p>Country Cheddar, 78g</p>
+                        <span class="price">PHP 15.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Piattos</h3>
+                        <p>Potato crisps, Cheese / Sour Cream</p>
+                        <span class="price">PHP 15.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Oishi Prawn Crackers</h3>
+                        <p>Crispy prawn snack, 60g</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Chiz Curls</h3>
+                        <p>Cheese flavored corn curls</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Lays</h3>
+                        <p>Potato chips, assorted flavors</p>
+                        <span class="price">PHP 20.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Rebisco Crackers</h3>
+                        <p>Plain crackers, 10-pack</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Skyflakes</h3>
+                        <p>Crackers, 10-pack</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Cloud 9</h3>
+                        <p>Chocolate caramel bar</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Choc Nut</h3>
+                        <p>Chocolate peanut candy, 1pc</p>
+                        <span class="price">PHP 3.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Curly Tops</h3>
+                        <p>Chocolate drops, small pack</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Boy Bawang</h3>
+                        <p>Cornick, Garlic / BBQ flavor</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Nips</h3>
+                        <p>Chocolate candy, small box</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Butter Fingers</h3>
+                        <p>Peanut butter bar snack</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Snacks">
+                        <h3>Magic Flakes</h3>
+                        <p>Cream-filled wafer, assorted</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+
+                    <!-- BEVERAGES -->
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Coca-Cola</h3>
+                        <p>330ml can / 1.5L bottle</p>
+                        <span class="price">PHP 25.00 / 75.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Royal Tru-Orange</h3>
+                        <p>330ml can</p>
+                        <span class="price">PHP 25.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Sprite</h3>
+                        <p>330ml can / 1.5L bottle</p>
+                        <span class="price">PHP 25.00 / 75.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Mineral Water</h3>
+                        <p>500ml bottle</p>
+                        <span class="price">PHP 15.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Zesto Juice</h3>
+                        <p>Orange / Mango, 250ml</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>C2 Green Tea</h3>
+                        <p>Apple / Lemon flavor, 230ml</p>
+                        <span class="price">PHP 20.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Nestea Iced Tea</h3>
+                        <p>Lemon / Peach, 500ml</p>
+                        <span class="price">PHP 20.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Bear Brand Milk</h3>
+                        <p>Powdered milk, sachet</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Milo</h3>
+                        <p>Chocolate malt drink, sachet</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Nescafé 3-in-1</h3>
+                        <p>Instant coffee, sachet</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Kopiko 78°C</h3>
+                        <p>Ready-to-drink coffee, 240ml</p>
+                        <span class="price">PHP 20.00</span>
+                    </div>
+                    <div class="product-card" data-category="Beverages">
+                        <h3>Red Bull</h3>
+                        <p>Energy drink, 250ml can</p>
+                        <span class="price">PHP 45.00</span>
+                    </div>
+
+                    <!-- CANNED GOODS -->
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>Argentina Corned Beef</h3>
+                        <p>150g can</p>
+                        <span class="price">PHP 45.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>Purefoods Corned Beef</h3>
+                        <p>175g can</p>
+                        <span class="price">PHP 48.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>Ligo Sardines</h3>
+                        <p>Tomato / Spicy sauce, 155g</p>
+                        <span class="price">PHP 20.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>555 Sardines</h3>
+                        <p>Spanish style, 155g</p>
+                        <span class="price">PHP 22.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>Spam</h3>
+                        <p>Luncheon meat, 340g</p>
+                        <span class="price">PHP 120.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>Century Tuna</h3>
+                        <p>Flakes in oil / Hot & Spicy, 180g</p>
+                        <span class="price">PHP 35.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>Purefoods Liver Spread</h3>
+                        <p>85g can</p>
+                        <span class="price">PHP 18.00</span>
+                    </div>
+                    <div class="product-card" data-category="Canned Goods">
+                        <h3>UFC Tamis Anghang</h3>
+                        <p>Sweet & spicy, 320g</p>
+                        <span class="price">PHP 30.00</span>
+                    </div>
+
+                    <!-- CONDIMENTS -->
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Datu Puti Vinegar</h3>
+                        <p>Sukang Maasim, sachet</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Datu Puti Soy Sauce</h3>
+                        <p>Toyo, sachet</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>UFC Banana Ketchup</h3>
+                        <p>Tomato blend, sachet</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Mang Tomas</h3>
+                        <p>All-purpose sauce, sachet</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Ajinomoto</h3>
+                        <p>Umami seasoning, sachet</p>
+                        <span class="price">PHP 3.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Magic Sarap</h3>
+                        <p>All-in-one seasoning, sachet</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Knorr Broth Cubes</h3>
+                        <p>Chicken / Beef, 10g cube</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Condiments">
+                        <h3>Mama Sita's Sinigang Mix</h3>
+                        <p>Tamarind soup base, 22g</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+
+                    <!-- SUPPLIES -->
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Safeguard Soap</h3>
+                        <p>Antibacterial bar soap, 60g</p>
+                        <span class="price">PHP 20.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Palmolive Shampoo</h3>
+                        <p>Naturals, sachet 10ml</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Rejoice Shampoo</h3>
+                        <p>Anti-dandruff, sachet 10ml</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Colgate Toothpaste</h3>
+                        <p>Fresh mint, 40g travel size</p>
+                        <span class="price">PHP 25.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Ariel Detergent</h3>
+                        <p>Powder, sachet 50g</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Downy Fabric Conditioner</h3>
+                        <p>Sunrise Fresh, sachet</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Mighty Clean Dishwashing Liquid</h3>
+                        <p>Lemon scent, sachet</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Zonrox Bleach</h3>
+                        <p>Original scent, sachet</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Whisper Feminine Pad</h3>
+                        <p>Regular, 1pc</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Disposable Lighter</h3>
+                        <p>Assorted colors</p>
+                        <span class="price">PHP 15.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Candle</h3>
+                        <p>White wax, 2-pack</p>
+                        <span class="price">PHP 10.00</span>
+                    </div>
+                    <div class="product-card" data-category="Supplies">
+                        <h3>Plastic Bag (Supot)</h3>
+                        <p>Assorted sizes, per pack</p>
+                        <span class="price">PHP 5.00</span>
+                    </div>
+
+                    <!-- CIGARETTES -->
+                    <div class="product-card" data-category="Cigarettes">
+                        <h3>Marlboro Red</h3>
+                        <p>Full flavor, per stick</p>
+                        <span class="price">PHP 8.00</span>
+                    </div>
+                    <div class="product-card" data-category="Cigarettes">
+                        <h3>Marlboro Menthol</h3>
+                        <p>Menthol, per stick</p>
+                        <span class="price">PHP 8.00</span>
+                    </div>
+                    <div class="product-card" data-category="Cigarettes">
+                        <h3>Chesterfield</h3>
+                        <p>Red / Blue, per stick</p>
+                        <span class="price">PHP 8.00</span>
+                    </div>
+                    <div class="product-card" data-category="Cigarettes">
+                        <h3>Hope Luxury</h3>
+                        <p>Full flavor, per stick</p>
+                        <span class="price">PHP 7.00</span>
+                    </div>
+                    <div class="product-card" data-category="Cigarettes">
+                        <h3>Fortune</h3>
+                        <p>Menthol / Regular, per stick</p>
+                        <span class="price">PHP 6.00</span>
+                    </div>
+                    <div class="product-card" data-category="Cigarettes">
+                        <h3>Philip Morris</h3>
+                        <p>Bold / Blue, per stick</p>
+                        <span class="price">PHP 8.00</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══ PROMOS ═══ -->
+        <section id="promos" class="page" aria-labelledby="promos-heading">
+            <div class="page-header">
+                <h1 id="promos-heading">Special Promos</h1>
+                <p>Don't miss out on our latest deals!</p>
+            </div>
+            <div class="section-container">
+                <div class="promos-grid">
+                    <div class="promo-card">
+                        <h3>🎉 Suki Discount</h3>
+                        <p>Get P5 off on your total bill every Friday! Minimum purchase of PHP 200.</p>
+                    </div>
+                    <div class="promo-card">
+                        <h3>🥤 Bundle Deal</h3>
+                        <p>Buy 2 packs of biscuits, get 1 juice box FREE! Valid until Nov 30, 2026.</p>
+                    </div>
+                    <div class="promo-card">
+                        <h3>🆕 New Arrivals</h3>
+                        <p>New stock of imported snacks just arrived! Check out the Product Catalog.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ LOCATION ═══ -->
+        <section id="location" class="page" aria-labelledby="location-heading">
+            <div class="page-header">
+                <h1 id="location-heading">Location &amp; Contact</h1>
+                <p>Find us and get in touch</p>
+            </div>
+            <div class="section-container">
+                <div class="location-grid">
+
+                    <div class="location-info">
+                        <div class="info-card">
+                            <h2>📍 Address</h2>
+                            <p>02 Ibañez Street Barangay San Diego <br>Luisiana, Laguna, Philippines 4032</p>
+                        </div>
+                        <div class="info-card">
+                            <h2>🕐 Operating Hours</h2>
+                            <p>Monday – Saturday: 6:00 AM – 10:00 PM<br>Sunday: 7:00 AM – 9:00 PM</p>
+                        </div>
+                        <div class="info-card">
+                            <h2>📞 Contact</h2>
+                            <p>Phone: <a href="tel:09929160023" class="contact-link">09929160023</a></p>
+                        </div>
+                       
+                    </div>
+
+                    <div class="location-map">
+                        <iframe
+                            src="https://www.google.com/maps?q=02+Ibanez+Street,+Barangay+San+Diego,+Luisiana,+Laguna,+Philippines+4032&output=embed"
+                            width="100%"
+                            height="420"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Jessie's Store location on Google Maps">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2 class="footer-logo">🛒 Jessie's Store</h2>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><a href="tel: 09929160023" class="footer-link">📱 09929160023</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Address</h3>
+                <p>02 Ibañez Street , Brgy. San Diego<br>Luisiana, Laguna 4032, Philippines</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"     class="footer-link" data-page="home">Home</a></li>
+                    <li><a href="#products" class="footer-link" data-page="products">Products</a></li>
+                    <li><a href="#promos"   class="footer-link" data-page="promos">Promos</a></li>
+                    <li><a href="#location" class="footer-link" data-page="location">Location</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jessie's Sari-Sari Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- BOTTOM NAV (mobile only) -->
+    <div class="bottom-nav">
+        <div class="nav-item active" data-page="home">
+            <span class="nav-icon">🏠</span>Home
+        </div>
+        <div class="nav-item" data-page="products">
+            <span class="nav-icon">🛒</span>Products
+        </div>
+        <div class="nav-item" data-page="promos">
+            <span class="nav-icon">📢</span>Promos
+        </div>
+        <div class="nav-item" data-page="location">
+            <span class="nav-icon">📍</span>Location
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
